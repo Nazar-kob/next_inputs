@@ -48,7 +48,7 @@ const Input = ({
         className={styleInput}
         placeholder={placeholder}
       />
-      {isError && <span className="bg-red-50">{errorMessage}</span>}
+      {isError && <span className="text-red-400">{errorMessage}</span>}
     </div>
   );
 };

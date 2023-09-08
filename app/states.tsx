@@ -29,7 +29,17 @@ const initSteps = [
 
 const useSteps = create<ISteps>((set) => ({
   steps: initSteps,
-  updateStepsStatus: (curStep: IStep) => {},
+  updateStepsStatus: (curStep: IStep) => {
+    set((state) => {
+      const updatedSteps = state.steps.map((step) =>
+        step.name === curStep.name
+          ? { ...step, status: StepStatus.complete }
+          : step
+      );
+
+      return { steps: updatedSteps };
+    });
+  },
 }));
 
 export default useSteps;
