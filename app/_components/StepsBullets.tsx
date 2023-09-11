@@ -10,7 +10,6 @@ function classNames(...classes: string[]) {
 
 export default function StepsBullets() {
   const { steps } = useSteps();
-
   return (
     <div className="px-4 py-12 sm:px-6 lg:px-8">
       <nav className="flex justify-center" aria-label="Progress">

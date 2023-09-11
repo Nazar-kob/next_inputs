@@ -13,7 +13,7 @@ interface IStep {
 }
 interface ISteps {
   steps: IStep[];
-  updateStepsStatus: (curStep: IStep) => void;
+  updateStepsStatus: (curStepIndx: number) => void;
 }
 
 const initSteps = [
@@ -29,13 +29,18 @@ const initSteps = [
 
 const useSteps = create<ISteps>((set) => ({
   steps: initSteps,
-  updateStepsStatus: (curStep: IStep) => {
+  updateStepsStatus: (curStepIndx: number) => {
     set((state) => {
-      const updatedSteps = state.steps.map((step) =>
-        step.name === curStep.name
-          ? { ...step, status: StepStatus.complete }
-          : step
-      );
+      const updatedSteps = state.steps.map((step, idx) => {
+        const nextIndex = curStepIndx + 1;
+        if (idx === curStepIndx) {
+          return { ...step, status: StepStatus.complete };
+        }
+        if (idx === nextIndex && nextIndex < state.steps.length) {
+          return { ...step, status: StepStatus.current };
+        }
+        return step;
+      });
 
       return { steps: updatedSteps };
     });

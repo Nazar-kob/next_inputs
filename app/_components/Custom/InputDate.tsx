@@ -9,21 +9,27 @@ type Props = {
   control: Control<any>;
   errorMessage?: string;
   className?: string;
+  label: string;
 };
 
-const InputDate = ({ name, control, errorMessage, className }: Props) => {
+const InputDate = ({
+  name,
+  control,
+  errorMessage,
+  className,
+  label,
+}: Props) => {
   const isError = errorMessage ? true : false;
 
-  const styleLabel = classNames(
-    'block mb-2 text-sm font-bold text-gray-400 dark:text-white',
-    { 'text-red-500': isError }
-  );
+  const styleLabel = classNames('block  text-sm font-medium  dark:text-white', {
+    'text-red-700': isError,
+  });
 
   const styleContent = classNames('flex flex-col gap-1', className ?? '');
 
   return (
     <div className={styleContent}>
-      <label className={styleLabel}>Close Date</label>
+      <label className={styleLabel}>{label}</label>
       <div className="w-full relative">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
           <svg
@@ -54,7 +60,11 @@ const InputDate = ({ name, control, errorMessage, className }: Props) => {
           }}
         />
       </div>
-      {errorMessage && <span className="text-red-400">{errorMessage}</span>}
+      {errorMessage && (
+        <span className="mt-2 text-sm text-red-600 dark:text-red-500">
+          {errorMessage}
+        </span>
+      )}
     </div>
   );
 };

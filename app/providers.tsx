@@ -1,14 +1,14 @@
 'use client';
 
 import React from 'react';
-import { ThemeProvider } from 'next-themes';
+import { Flowbite } from 'flowbite-react';
 
 type Props = {
   children: React.ReactNode;
 };
 
 const Providers = ({ children }: Props) => {
-  return <ThemeProvider attribute="class">{children}</ThemeProvider>;
+  return <Flowbite>{children}</Flowbite>;
 };
 
 export default Providers;

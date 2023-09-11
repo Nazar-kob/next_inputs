@@ -2,11 +2,13 @@
 
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Input } from '../Input';
-import InputDate from '../InputDate';
-import Button from '../Button';
-import useSteps from '@/app/states';
 import { useRouter } from 'next/navigation';
+
+import useSteps from '@/app/states';
+
+import Button from '../Custom/Button';
+import InputDate from '../Custom/InputDate';
+import Input from '../Custom/Input';
 
 type Props = {};
 
@@ -20,7 +22,7 @@ type Inputs = {
 };
 
 const PropertyDetail = (props: Props) => {
-  const { steps, updateStepsStatus } = useSteps();
+  const { updateStepsStatus } = useSteps();
   const router = useRouter();
 
   const {
@@ -32,7 +34,7 @@ const PropertyDetail = (props: Props) => {
 
   const onSubmit = (data: Inputs) => {
     if (!data) return;
-    updateStepsStatus(steps[0]);
+    updateStepsStatus(0);
     router.push('/unit-mix');
   };
 
@@ -48,7 +50,7 @@ const PropertyDetail = (props: Props) => {
           maxLength: 64,
         })}
         errorMessage={errors.name?.message}
-        labelName="Property name"
+        label="Property name"
         placeholder="Enter property name"
       />
       <Input
@@ -58,7 +60,7 @@ const PropertyDetail = (props: Props) => {
           maxLength: 64,
         })}
         errorMessage={errors.address?.message}
-        labelName="Address line"
+        label="Address line"
         placeholder="Enter address line"
       />
       <Input
@@ -67,7 +69,7 @@ const PropertyDetail = (props: Props) => {
           maxLength: 64,
         })}
         errorMessage={errors.country?.message}
-        labelName="Country"
+        label="Country"
         placeholder="Enter country"
       />
       <Input
@@ -76,7 +78,7 @@ const PropertyDetail = (props: Props) => {
           maxLength: 64,
         })}
         errorMessage={errors.city?.message}
-        labelName="City"
+        label="City"
         placeholder="Enter city"
       />
       <Input
@@ -85,7 +87,7 @@ const PropertyDetail = (props: Props) => {
           maxLength: 10,
         })}
         errorMessage={errors.zip?.message}
-        labelName="ZIP/Postal code"
+        label="ZIP/Postal code"
         placeholder="Enter ZIP/Postal code"
       />
       <InputDate
@@ -93,10 +95,11 @@ const PropertyDetail = (props: Props) => {
         name="closeDate"
         control={control}
         errorMessage={errors.closeDate?.message}
+        label="Close date"
       />
 
       <div className="col-start-3 row-start-6 flex justify-end items-center">
-        <Button name="Continue" type="submit" />
+        <Button name="Continue" type="submit" color="dark" />
       </div>
     </form>
   );

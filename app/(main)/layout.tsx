@@ -8,7 +8,7 @@ type Props = {
 
 const layout = ({ children }: Props) => {
   return (
-    <main className="h-screen w-full max-w-screen-xl mx-auto my-0">
+    <main className="h-screen w-full max-w-screen-xl mx-auto my-0 dark:bg-teal-950">
       <div className="h-full grid grid-cols-12">
         <div className="h-full col-span-3 flex flex-col items-center justify-between p-4 border-r-2">
           <StepsBullets />
