@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
-import { Datepicker, Label, TextInput, TextInputProps } from 'flowbite-react';
+import { Label, TextInput, TextInputProps } from 'flowbite-react';
 
 type Props = {
   register: UseFormRegisterReturn;

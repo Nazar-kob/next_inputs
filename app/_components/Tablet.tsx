@@ -1,7 +1,6 @@
 import React from 'react';
 
 // I am not use flowbite-react tablet component because we can render date on server side as next js recommend
-
 export interface IRow {
   id: number;
   cells: string[];

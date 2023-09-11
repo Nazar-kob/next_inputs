@@ -1,6 +1,5 @@
 import React from 'react';
 import FinancingForm from '../forms/FinancingForm';
-import NavBtn from '../Custom/NavBtn';
 
 type Props = {};
 

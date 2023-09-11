@@ -3,7 +3,6 @@
 import React from 'react';
 import { Button as FBtn } from 'flowbite-react';
 import Button from './Button';
-import { useFormContext } from 'react-hook-form';
 
 type Props = {
   leftName: string;

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Button, ButtonProps } from 'flowbite-react';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import useSteps from '@/app/states';
 
 type Props = {
